@@ -6,7 +6,11 @@
        <button (click)="eliminar(producto.nombre)" class="btn btn-danger">Eliminar</button>
 
     </ul>
-
+    
+    <div class="card">
+        <p *ngIf="listaVacia" class="producto">No quedan más elementos en la lista</p>
+    </div>
+    
 </div>
 
-  
+

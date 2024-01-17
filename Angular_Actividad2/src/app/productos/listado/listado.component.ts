@@ -1,10 +1,10 @@
-import { NgFor } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
 import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-listado',
   standalone: true,
-  imports: [NgFor],
+  imports: [NgFor, NgIf],
   templateUrl: './listado.component.html',
   styleUrl: './listado.component.css'
 })
@@ -25,13 +25,24 @@ export class ListadoComponent {
 
   eliminar(nombre:string) {
     let index:number= this.productos.findIndex((p) => p.nombre == nombre );
-    //llaves tiene que tener return
-    console.log(index, nombre);
+    //llaves tiene que tener return, parentesis no
+    
+
     if(index>=0) {
       this.productos.splice(index, 1);
     }
+
+    this.comprobarListaVacia();
    
   }
 
+  listaVacia:boolean = false;
   
+  comprobarListaVacia(){
+    this.listaVacia = this.productos.length <= 0 ? true : false;
+    
+  }
+
+  
+
 }
