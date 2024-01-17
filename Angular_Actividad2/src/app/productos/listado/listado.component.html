@@ -1,1 +1,12 @@
-<p>listado works!</p>
+    
+<div class="container-fluid main">
+    <h1>Listado de productos</h1>
+    <ul *ngFor="let producto of productos; let i = index">
+       <li class="producto">{{ i+1 }}. {{ producto.nombre }}, {{ producto.precio }}, {{ producto.categoria }}</li>
+       <button (click)="eliminar(producto.nombre)" class="btn btn-danger">Eliminar</button>
+
+    </ul>
+
+</div>
+
+  
